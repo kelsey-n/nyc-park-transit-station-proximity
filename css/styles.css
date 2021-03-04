@@ -1,0 +1,150 @@
+html, body, .container, #sidebar, #mapcontainer {
+  height: 100%;
+  margin: 0;
+}
+
+.container {
+  display: flex;
+}
+
+#sidebar {
+  background:#F6F6F4;
+  width: 320px;
+}
+
+#mapcontainer {
+  flex-grow: 1;
+}
+
+#map-intro {
+  font-family: sans-serif;
+  font-size: 13px;
+  margin: 10px;
+}
+
+.map-intro-heading {
+  font-size: 16px;
+  text-align: center;
+  font-weight: bold;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+h2 {
+  top: 0px; /* place heading on top edge of map container */
+  left: 50%; /* place left corner of heading at center width of map container */
+  position: fixed;
+  margin: 0;
+  margin-left: -138.6px; /* add a negative left margin half the width of the heading to place center of heading at center width of map container */
+  z-index: 1; /* places heading on top of map container */
+}
+
+h2::before {
+  content: "";
+  background-color: #484848;
+  opacity: 0.95;
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  border-radius: 10px;
+}
+
+#header {
+  font-family: sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  margin: 8px;
+  margin-top: 8px;
+  z-index: 1;
+  position: relative;
+}
+
+.map-intro-subheading {
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 0;
+}
+
+.subway-button {
+  font-family: sans-serif;
+  font-size: 14px;
+  color: black;
+  margin: 10px;
+  float: center;
+  margin-top: 30px;
+  margin-left: 67px;
+  background-color: rgba(0,0,255,0.1);
+  border-color: rgba(0,0,255,0.2);
+  outline: none;
+}
+
+.park-button {
+  font-family: sans-serif;
+  font-size: 14px;
+  color: black;
+  margin: 10px;
+  float: center;
+  margin-left: 102px;
+  background-color: rgba(255,0,0,0.1);
+  border-color: rgba(255,0,0,0.2);
+  outline: none;
+}
+
+#subway-legend-vals {
+  visibility: hidden;
+}
+
+#park-legend-vals {
+  visibility: hidden;
+}
+
+.subway-button:hover {
+  cursor: pointer;
+  background-color: rgba(0,0,255,0.4);
+}
+
+.park-button:hover {
+  cursor: pointer;
+  background-color: rgba(255,0,0,0.4);
+}
+
+.legend-vals {
+  margin-left: 30px;
+}
+.legend-vals button {
+  background-color: white;
+  border: 1px;
+  font-size: 11px;
+  font-family: sans-serif;
+  color: black;
+  float: left; /* Float the buttons side by side */
+  height: 25px;
+  width: 40px;
+  position: relative;
+}
+
+.legend-vals button:not(:last-child) {
+  border-right: none; /* Prevent double borders */
+}
+
+.selected-subway-button-class {
+  border-width: 2px;
+  border-color: rgba(0,0,255,0.5);
+  background-color: rgba(0,0,255,0.4);
+  outline: none;
+}
+
+.selected-park-button-class {
+  border-width: 2px;
+  border-color: rgba(255,0,0,0.5);
+  background-color: rgba(255,0,0,0.4);
+  outline: none;
+}
+
+a:visited {
+  color: #0000EE;
+}
