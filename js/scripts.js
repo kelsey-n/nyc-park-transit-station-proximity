@@ -18,7 +18,7 @@ map.on('style.load', function () {
   // add a geojson source
   map.addSource('proximity-data', {
     type: 'geojson',
-    data: '/data/subway_park_prox_data_v5.geojson'
+    data: 'data/subway_park_prox_data_v5.geojson'
   });
 
   // add layers for each variable in the data source with default 'visibility': 'none'
