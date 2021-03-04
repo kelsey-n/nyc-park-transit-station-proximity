@@ -27,7 +27,7 @@ map.on('style.load', function () {
     'type': 'fill',
     'source': 'proximity-data',
     'layout': {
-      'visibility': 'visible'
+      'visibility': 'none'
     },
     'paint': {
       'fill-color': [
