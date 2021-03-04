@@ -95,7 +95,7 @@ h2::before {
 }
 
 #subway-legend-vals {
-  visibility: hidden;
+  visibility: visible;
 }
 
 #park-legend-vals {
