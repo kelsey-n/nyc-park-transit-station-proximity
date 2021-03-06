@@ -18,6 +18,7 @@ map.addControl(new mapboxgl.NavigationControl({
 var stationcolors = ['#f6bdc0','#f1959b','#f07470','#ea4c46','#dc1c13']; //red monochrom
 var parkcolors = ['#bfbfff','#a3a3ff','#7879ff','#4949ff','#1f1fff']; //blue monochrom
 
+// Create legends for each variable:
 $.each([0,1,2,3,4], function(parkcol_pos) {
   $('#park-legend-vals').append(`
     <button style='background-color:${parkcolors[parkcol_pos]};' disabled>${25*parkcol_pos}%</button>
@@ -29,6 +30,10 @@ $.each([0,1,2,3,4], function(stationcol_pos) {
     <button style='background-color:${stationcolors[stationcol_pos]};' disabled>${25*stationcol_pos}%</button>
     `);
 });
+
+//add legend for both here: 
+
+
 
 map.on('style.load', function () {
   // add a geojson source

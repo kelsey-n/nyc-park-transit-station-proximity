@@ -15,7 +15,24 @@
   <h2>
     <p id='header'>Proximity to Parks & Transit Stations in NYC</p>
   </h2>
+
+  <div id='legend-filter'>
+    <div>
+      <button type="button" class='park-button'>Park Proximity</button>
+      <div class='legend-vals' id='park-legend-vals'></div>
+    </div>
+    <div>
+      <button type="button" class='subway-button'>Transit Station Proximity</button>
+      <div class='legend-vals' id='subway-legend-vals'></div>
+    </div>
+    <div>
+      <button type="button" class='both-button'>Both</button>
+      <div class='legend-vals' id='both-legend-vals'></div>
+    </div>
+  </div>
+
   <div class='container'>
+
     <div id='sidebar'>
       <div id='map-intro'>
         <p class='map-intro-subheading'>Data</p>
@@ -24,34 +41,21 @@
           <a target="_blank" rel="noopener noreferrer"
           href="https://furmancenter.org/coredata/userguide/data-downloads">CoreData.nyc
           </a>. At the Community District level, this map shows:<br><br>
-          <u>Park Proximity</u> - The percentage of residential units that are within a quarter mile of a park<br><br>
-          <u>Transit Station Proximity</u> - The percentage of residential units that are within a half mile walk of
+          <u>Park Proximity</u><br>The percentage of residential units that are within a quarter mile of a park<br><br>
+          <u>Transit Station Proximity</u><br>The percentage of residential units that are within a half mile walk of
           a station entrance for the New York City Subway, Long Island Rail Road, PATH, Amtrak, Metro-North
           Railroad, or Staten Island Railway
-        </p><br>
+        </p><br><br>
         <p class='map-intro-subheading'>How to use this map</p>
         <p>Click on the buttons below to show, hide and layer the data on the map. Then hover over each district on the map
         to see its name and exact percentage.</p><br>
-
-        <div id='legend-filter'>
-          <div>
-            <button type="button" class='park-button'>Park Proximity</button>
-            <div class='legend-vals' id='park-legend-vals'>
-            </div>
-          </div>
-          <div>
-            <button type="button" class='subway-button'>Transit Station Proximity</button>
-            <div class='legend-vals' id='subway-legend-vals'>
-            </div>
-          </div>
-        </div>
-
       </div>
     </div>
-    <div id='mapcontainer'> </div>
+
+    <div id='mapcontainer'>
+    </div>
+
   </div>
-
-
 
 
   <script src='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.js'></script>
