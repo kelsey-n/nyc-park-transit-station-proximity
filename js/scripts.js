@@ -1,6 +1,6 @@
 mapboxgl.accessToken = 'pk.eyJ1Ijoia25hbmFuIiwiYSI6ImNrbDlsMXNmNjI3MnEyb25yYjNremFwYXQifQ.l6loLOR-pOL_U2kzWBSQNQ';
 
-// 1. Initialize mapboxgl map and insert into mapcontainer div:
+// Initialize mapboxgl map and insert into mapcontainer div:
 var map = new mapboxgl.Map({
   container: 'mapcontainer', // container ID
   style: 'mapbox://styles/mapbox/light-v10', // style URL
@@ -8,11 +8,27 @@ var map = new mapboxgl.Map({
   zoom: 10 // starting zoom
 });
 
-// add navigation control:
+// Add navigation control:
 map.addControl(new mapboxgl.NavigationControl({
   showCompass: false,
   showZoom: true
 }));
+
+// Create lists to hold color codes for the station and park data:
+var stationcolors = ['#f6bdc0','#f1959b','#f07470','#ea4c46','#dc1c13']; //red monochrom
+var parkcolors = ['#bfbfff','#a3a3ff','#7879ff','#4949ff','#1f1fff']; //blue monochrom
+
+$.each([0,1,2,3,4], function(parkcol_pos) {
+  $('#park-legend-vals').append(`
+    <button style='background-color:${parkcolors[parkcol_pos]};' disabled>${25*parkcol_pos}%</button>
+    `);
+});
+
+$.each([0,1,2,3,4], function(stationcol_pos) {
+  $('#subway-legend-vals').append(`
+    <button style='background-color:${stationcolors[stationcol_pos]};' disabled>${25*stationcol_pos}%</button>
+    `);
+});
 
 map.on('style.load', function () {
   // add a geojson source
@@ -31,17 +47,17 @@ map.on('style.load', function () {
     },
     'paint': {
       'fill-color': [
-        'interpolate',
-        ['linear'],
+        'step',
+        //'interpolate',
+        //['linear'],
         ['get', 'prox_park_pct'],
-        0,'rgba(255,0,0,0)',
-        20,'rgba(255,0,0,0.2)',
-        40,'rgba(255,0,0,0.4)',
-        60,'rgba(255,0,0,0.6)',
-        80,'rgba(255,0,0,0.8)',
-        100, 'rgba(255,0,0,1)'
+        parkcolors[0],
+        25, parkcolors[1],
+        50, parkcolors[2],
+        75, parkcolors[3],
+        100, parkcolors[4]
       ],
-      'fill-opacity': 0.8
+      'fill-opacity': 0.7
     }
   });
 
@@ -54,17 +70,15 @@ map.on('style.load', function () {
     },
     'paint': {
       'fill-color': [
-        'interpolate',
-        ['linear'],
+        'step',
         ['get', 'prox_subway_pct'],
-        0,'rgba(0,0,255,0)',
-        20,'rgba(0,0,255,0.2)',
-        40,'rgba(0,0,255,0.4)',
-        60,'rgba(0,0,255,0.6)',
-        80,'rgba(0,0,255,0.8)',
-        100, 'rgba(0,0,255,1)'
+        stationcolors[0],
+        25, stationcolors[1],
+        50, stationcolors[2],
+        75, stationcolors[3],
+        100, stationcolors[4]
       ],
-      'fill-opacity': 0.8
+      'fill-opacity': 0.7
     }
   });
 

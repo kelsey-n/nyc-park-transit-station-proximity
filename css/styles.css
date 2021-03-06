@@ -77,8 +77,8 @@ h2::before {
   float: center;
   margin-top: 30px;
   margin-left: 67px;
-  background-color: rgba(0,0,255,0.1);
-  border-color: rgba(0,0,255,0.2);
+  background-color: #f1959b;
+  border-color: #f07470;
   outline: none;
 }
 
@@ -89,8 +89,8 @@ h2::before {
   margin: 10px;
   float: center;
   margin-left: 102px;
-  background-color: rgba(255,0,0,0.1);
-  border-color: rgba(255,0,0,0.2);
+  background-color: #a3a3ff;
+  border-color: #7879ff;
   outline: none;
 }
 
@@ -104,12 +104,14 @@ h2::before {
 
 .subway-button:hover {
   cursor: pointer;
-  background-color: rgba(0,0,255,0.4);
+  background-color: #ea4c46;
+  color: white;
 }
 
 .park-button:hover {
   cursor: pointer;
-  background-color: rgba(255,0,0,0.4);
+  background-color: #4949ff;
+  color: white;
 }
 
 .legend-vals {
@@ -133,16 +135,18 @@ h2::before {
 
 .selected-subway-button-class {
   border-width: 2px;
-  border-color: rgba(0,0,255,0.5);
-  background-color: rgba(0,0,255,0.4);
+  border-color: #dc1c13;
+  background-color: #ea4c46;
   outline: none;
+  color: white;
 }
 
 .selected-park-button-class {
   border-width: 2px;
-  border-color: rgba(255,0,0,0.5);
-  background-color: rgba(255,0,0,0.4);
+  border-color: #1f1fff;
+  background-color: #4949ff;
   outline: none;
+  color: white; 
 }
 
 a:visited {
