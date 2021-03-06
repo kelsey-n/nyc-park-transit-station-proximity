@@ -60,7 +60,7 @@ map.on('style.load', function () {
     'type': 'fill',
     'source': 'proximity-data',
     'layout': {
-      'visibility': 'none'
+      'visibility': 'visible'
     },
     'paint': {
       'fill-color': [
@@ -217,6 +217,6 @@ $('.both-button').click(function () {
   $('#park-both').show();
   $('#subway-both').show();
   //$('#both-legend-vals').show();
-  $('#park-legend-vals').hide();
-  $('#subway-legend-vals').hide();
+  $('#park-legend-vals').show();
+  $('#subway-legend-vals').show();
 });

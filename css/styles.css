@@ -118,7 +118,9 @@ h2::before {
 }
 
 #park-legend-vals {
-  display: none;
+  display: block;
+  position: absolute;
+  top: 92px;
 }
 
 #subway-legend-vals button {
