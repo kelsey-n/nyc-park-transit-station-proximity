@@ -76,14 +76,24 @@ h2::before {
   margin-bottom: 0;
 }
 
+.both-button {
+  font-family: sans-serif;
+  font-size: 14px;
+  color: black;
+  margin-left: 30px;
+  float: center;
+  background-color:	#D8BFD8;
+  border-color: #DA70D6;
+  outline: none;
+}
+
 .subway-button {
   font-family: sans-serif;
   font-size: 14px;
   color: black;
-  margin: 10px;
+  margin-top: 3px;
+  margin-left: 30px;
   float: center;
-  margin-top: 30px;
-  margin-left: 67px;
   background-color: #f1959b;
   border-color: #f07470;
   outline: none;
@@ -93,20 +103,52 @@ h2::before {
   font-family: sans-serif;
   font-size: 14px;
   color: black;
-  margin: 10px;
+  margin-top: 3px;
+  margin-left: 30px;
   float: center;
-  margin-left: 102px;
   background-color: #a3a3ff;
   border-color: #7879ff;
   outline: none;
 }
 
 #subway-legend-vals {
-  visibility: visible;
+  display: block;
+  position: absolute;
+  top: 137px;
 }
 
 #park-legend-vals {
-  visibility: hidden;
+  display: none;
+}
+
+#subway-legend-vals button {
+  border: 1px;
+  font-size: 11px;
+  font-family: sans-serif;
+  color: black;
+  float: left; /* Float the buttons side by side */
+  height: 22px;
+  width: 22px;
+  opacity: 0.7;
+}
+
+#subway-legend-vals button:not(:last-child) {
+  border-right: none; /* Prevent double borders */
+}
+
+#park-legend-vals button {
+  border: 1px;
+  font-size: 11px;
+  font-family: sans-serif;
+  color: black;
+  display: block; /* Make the buttons appear below each other */
+  height: 22px;
+  width: 22px;
+  opacity: 0.7;
+}
+
+#park-legend-vals button:not(:last-child) {
+  border-bottom: none; /* Prevent double borders */
 }
 
 .subway-button:hover {
@@ -121,23 +163,66 @@ h2::before {
   color: white;
 }
 
-.legend-vals {
-  margin-left: 30px;
+.both-button:hover {
+  cursor: pointer;
+  background-color: #BA55D3;
+  color: white;
 }
-.legend-vals button {
-  background-color: white;
+
+#both-legend-vals {
+  display: grid; /*so that we can layer the colors on top of each other*/
+  margin-left: 50px;
+  margin-top: 20px;
+}
+
+#subway-both {
+  grid-column-start: 1;
+  grid-row-start: 1;
+  display: block;
+}
+
+#park-both {
+  grid-column-start: 1;
+  grid-row-start: 1;
+  display: block;
+}
+
+#subway-both button {
   border: 1px;
   font-size: 11px;
   font-family: sans-serif;
   color: black;
   float: left; /* Float the buttons side by side */
-  height: 25px;
-  width: 40px;
-  position: relative;
+  height: 66px;
+  width: 22px;
+  opacity: 0.7;
 }
 
-.legend-vals button:not(:last-child) {
+#subway-both button:not(:last-child) {
   border-right: none; /* Prevent double borders */
+}
+
+#park-both button {
+  border: 1px;
+  font-size: 11px;
+  font-family: sans-serif;
+  color: black;
+  display: block; /* Make the buttons appear below each other */
+  height: 22px;
+  width: 66px;
+  opacity: 0.7;
+}
+
+#park-both button:not(:last-child) {
+  border-bottom: none; /* Prevent double borders */
+}
+
+.selected-both-button-class {
+  border-width: 2px;
+  border-color: #9932CC;
+  background-color: #BA55D3;
+  outline: none;
+  color: white;
 }
 
 .selected-subway-button-class {

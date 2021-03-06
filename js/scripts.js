@@ -15,24 +15,36 @@ map.addControl(new mapboxgl.NavigationControl({
 }));
 
 // Create lists to hold color codes for the station and park data:
-var stationcolors = ['#f6bdc0','#f1959b','#f07470','#ea4c46','#dc1c13']; //red monochrom
-var parkcolors = ['#bfbfff','#a3a3ff','#7879ff','#4949ff','#1f1fff']; //blue monochrom
+var stationcolors = ['#f6bdc0','#f07470','#dc1c13']; //red monochrom
+var parkcolors = ['#1f1fff','#7879ff','#bfbfff']; //blue
+
+var station_perc_vals = ['0','40','85'];
+var park_perc_vals = ['90','70','0'];
 
 // Create legends for each variable:
-$.each([0,1,2,3,4], function(parkcol_pos) {
+$.each([0,1,2], function(parkcol_pos) {
   $('#park-legend-vals').append(`
-    <button style='background-color:${parkcolors[parkcol_pos]};' disabled>${25*parkcol_pos}%</button>
+    <button style='background-color:${parkcolors[parkcol_pos]};' disabled>${park_perc_vals[parkcol_pos]}%</button>
     `);
 });
 
-$.each([0,1,2,3,4], function(stationcol_pos) {
+$.each([0,1,2], function(stationcol_pos) {
   $('#subway-legend-vals').append(`
-    <button style='background-color:${stationcolors[stationcol_pos]};' disabled>${25*stationcol_pos}%</button>
+    <button style='background-color:${stationcolors[stationcol_pos]};' disabled>${station_perc_vals[stationcol_pos]}%</button>
     `);
 });
 
-//add legend for both here: 
-
+//add legend for both here:
+$.each([0,1,2], function(parkcol_pos) {
+  $('#park-both').append(`
+    <button style='background-color:${parkcolors[parkcol_pos]};' disabled></button>
+  `);
+});
+$.each([0,1,2], function(stationcol_pos) {
+  $('#subway-both').append(`
+    <button style='background-color:${stationcolors[stationcol_pos]};' disabled></button>
+  `);
+});
 
 
 map.on('style.load', function () {
@@ -53,14 +65,10 @@ map.on('style.load', function () {
     'paint': {
       'fill-color': [
         'step',
-        //'interpolate',
-        //['linear'],
         ['get', 'prox_park_pct'],
-        parkcolors[0],
-        25, parkcolors[1],
-        50, parkcolors[2],
-        75, parkcolors[3],
-        100, parkcolors[4]
+        parkcolors[2],
+        70, parkcolors[1],
+        90, parkcolors[0]
       ],
       'fill-opacity': 0.7
     }
@@ -78,10 +86,8 @@ map.on('style.load', function () {
         'step',
         ['get', 'prox_subway_pct'],
         stationcolors[0],
-        25, stationcolors[1],
-        50, stationcolors[2],
-        75, stationcolors[3],
-        100, stationcolors[4]
+        40, stationcolors[1],
+        85, stationcolors[2]
       ],
       'fill-opacity': 0.7
     }
@@ -177,27 +183,40 @@ map.on('mousemove', function (e) {
 });
 
 $('.park-button').click(function () {
-  if (map.getLayoutProperty('park-prox-layer', 'visibility') === 'none') {
-    $('.park-button').addClass("selected-park-button-class");
-    $('#park-legend-vals').css('visibility','visible');
-    map.setLayoutProperty('park-prox-layer', 'visibility','visible');
-  }
-  else if (map.getLayoutProperty('park-prox-layer', 'visibility') === 'visible') {
-    $('.park-button').removeClass('selected-park-button-class');
-    $('#park-legend-vals').css('visibility','hidden');
-    map.setLayoutProperty('park-prox-layer', 'visibility','none');
-  }
+  $('.park-button').addClass("selected-park-button-class");
+  $('.subway-button').removeClass("selected-subway-button-class");
+    $('.both-button').removeClass('selected-both-button-class');
+  $('#park-both').hide();
+  $('#subway-both').hide();
+  //$('#both-legend-vals').hide();
+  $('#park-legend-vals').show();
+  $('#subway-legend-vals').hide();
+  map.setLayoutProperty('park-prox-layer', 'visibility','visible');
+  map.setLayoutProperty('subway-prox-layer', 'visibility','none');
 });
 
 $('.subway-button').click(function () {
-  if (map.getLayoutProperty('subway-prox-layer', 'visibility') === 'none') {
-    $('.subway-button').addClass("selected-subway-button-class");
-    $('#subway-legend-vals').css('visibility','visible');
-    map.setLayoutProperty('subway-prox-layer', 'visibility','visible');
-  }
-  else if (map.getLayoutProperty('subway-prox-layer', 'visibility') === 'visible') {
-    $('.subway-button').removeClass("selected-subway-button-class");
-    $('#subway-legend-vals').css('visibility','hidden');
-    map.setLayoutProperty('subway-prox-layer', 'visibility','none');
-  }
+  $('.subway-button').addClass("selected-subway-button-class");
+  $('.park-button').removeClass("selected-park-button-class");
+    $('.both-button').removeClass('selected-both-button-class');
+  $('#park-both').hide();
+  $('#subway-both').hide();
+  //$('#both-legend-vals').hide();
+  $('#park-legend-vals').hide();
+  $('#subway-legend-vals').show();
+  map.setLayoutProperty('subway-prox-layer', 'visibility','visible');
+  map.setLayoutProperty('park-prox-layer', 'visibility','none');
+});
+
+$('.both-button').click(function () {
+  $('.both-button').addClass('selected-both-button-class');
+  $('.subway-button').removeClass("selected-subway-button-class");
+  $('.park-button').removeClass("selected-park-button-class");
+  map.setLayoutProperty('subway-prox-layer', 'visibility','visible');
+  map.setLayoutProperty('park-prox-layer', 'visibility','visible');
+  $('#park-both').show();
+  $('#subway-both').show();
+  //$('#both-legend-vals').show();
+  $('#park-legend-vals').hide();
+  $('#subway-legend-vals').hide();
 });
