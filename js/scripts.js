@@ -193,6 +193,7 @@ $('.park-button').click(function () {
   $('#subway-words-both-legend').hide();
   $('#subway-only-legend-vals').hide();
   $('#park-only-legend-vals').show();
+  $('#legend-filter').css('padding-bottom','96px');
   map.setLayoutProperty('park-prox-layer', 'visibility','visible');
   map.setLayoutProperty('subway-prox-layer', 'visibility','none');
 });
@@ -211,6 +212,7 @@ $('.subway-button').click(function () {
   $('#subway-words-both-legend').show();
   $('#subway-only-legend-vals').show();
   $('#park-only-legend-vals').hide();
+  $('#legend-filter').css('padding-bottom','96px');
   map.setLayoutProperty('subway-prox-layer', 'visibility','visible');
   map.setLayoutProperty('park-prox-layer', 'visibility','none');
 });
@@ -231,4 +233,5 @@ $('.both-button').click(function () {
   $('#subway-words-both-legend').show();
   $('#subway-only-legend-vals').hide();
   $('#park-only-legend-vals').hide();
+  $('#legend-filter').css('padding-bottom','30px');
 });

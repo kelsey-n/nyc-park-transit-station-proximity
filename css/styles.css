@@ -19,8 +19,22 @@ html, body, .container, #sidebar, #mapcontainer {
 #legend-filter {
   z-index: 1;
   top: 50px;
-  left: 230px;
+  left: 250px;
+  padding-bottom: 30px;
+  padding-right: 15px;
   position: fixed;
+}
+
+#legend-filter::before {
+  content: "";
+  background-color: white;
+  opacity: 0.7;
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  border-radius: 30px;
 }
 
 #map-intro {
@@ -65,6 +79,7 @@ html, body, .container, #sidebar, #mapcontainer {
   background-color:	#D8BFD8;
   border-color: #DA70D6;
   outline: none;
+  position: relative;
 }
 
 .subway-button {
@@ -77,6 +92,7 @@ html, body, .container, #sidebar, #mapcontainer {
   background-color: #f1959b;
   border-color: #f07470;
   outline: none;
+  position: relative;
 }
 
 .park-button {
@@ -89,6 +105,7 @@ html, body, .container, #sidebar, #mapcontainer {
   background-color: #a3a3ff;
   border-color: #7879ff;
   outline: none;
+  position: relative;
 }
 
 #subway-legend-vals {
