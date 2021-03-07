@@ -18,9 +18,6 @@ map.addControl(new mapboxgl.NavigationControl({
 var stationcolors = ['#f6bdc0','#f07470','#dc1c13']; //red monochrom
 var parkcolors = ['#1f1fff','#7879ff','#bfbfff']; //blue
 
-var station_perc_vals = ['0','40','85'];
-var park_perc_vals = ['90','70','0'];
-
 // Create legends for each variable:
 $.each([0,1,2], function(parkcol_pos) {
   $('#park-legend-vals').append(`
@@ -188,7 +185,6 @@ $('.park-button').click(function () {
     $('.both-button').removeClass('selected-both-button-class');
   $('#park-both').hide();
   $('#subway-both').hide();
-  //$('#both-legend-vals').hide();
   $('#park-legend-vals').show();
   $('#subway-legend-vals').hide();
   $('#subway-both-legend-vals').hide();
