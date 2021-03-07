@@ -24,13 +24,13 @@ var park_perc_vals = ['90','70','0'];
 // Create legends for each variable:
 $.each([0,1,2], function(parkcol_pos) {
   $('#park-legend-vals').append(`
-    <button style='background-color:${parkcolors[parkcol_pos]};' disabled>${park_perc_vals[parkcol_pos]}%</button>
+    <button style='background-color:${parkcolors[parkcol_pos]};' disabled></button>
     `);
 });
 
 $.each([0,1,2], function(stationcol_pos) {
   $('#subway-legend-vals').append(`
-    <button style='background-color:${stationcolors[stationcol_pos]};' disabled>${station_perc_vals[stationcol_pos]}%</button>
+    <button style='background-color:${stationcolors[stationcol_pos]};' disabled></button>
     `);
 });
 
@@ -162,8 +162,8 @@ map.on('mousemove', function (e) {
       var subway_prox_pct2 = subway_layer.properties.prox_subway_pct;
       var popupContent3 = `
         <div style = "font-family:sans-serif; font-size:14px; font-weight:bold">${cd_name2}</div><br/>
-        <div style = "font-family:sans-serif; font-size:12px; font-weight:600">Park Prox: ${park_prox_pct2}%</div>
         <div style = "font-family:sans-serif; font-size:12px; font-weight:600">Station Prox: ${subway_prox_pct2}%</div>
+        <div style = "font-family:sans-serif; font-size:12px; font-weight:600">Park Prox: ${park_prox_pct2}%</div>
       `;
       popup.setLngLat(e.lngLat).setHTML(popupContent3).addTo(map);
       // set this lot's polygon feature as the data for the highlight source
@@ -191,6 +191,12 @@ $('.park-button').click(function () {
   //$('#both-legend-vals').hide();
   $('#park-legend-vals').show();
   $('#subway-legend-vals').hide();
+  $('#subway-both-legend-vals').hide();
+  $('#park-both-legend-vals').hide();
+  $('#park-words-both-legend').show();
+  $('#subway-words-both-legend').hide();
+  $('#subway-only-legend-vals').hide();
+  $('#park-only-legend-vals').show();
   map.setLayoutProperty('park-prox-layer', 'visibility','visible');
   map.setLayoutProperty('subway-prox-layer', 'visibility','none');
 });
@@ -201,9 +207,14 @@ $('.subway-button').click(function () {
     $('.both-button').removeClass('selected-both-button-class');
   $('#park-both').hide();
   $('#subway-both').hide();
-  //$('#both-legend-vals').hide();
   $('#park-legend-vals').hide();
   $('#subway-legend-vals').show();
+  $('#subway-both-legend-vals').hide();
+  $('#park-both-legend-vals').hide();
+  $('#park-words-both-legend').hide();
+  $('#subway-words-both-legend').show();
+  $('#subway-only-legend-vals').show();
+  $('#park-only-legend-vals').hide();
   map.setLayoutProperty('subway-prox-layer', 'visibility','visible');
   map.setLayoutProperty('park-prox-layer', 'visibility','none');
 });
@@ -216,7 +227,12 @@ $('.both-button').click(function () {
   map.setLayoutProperty('park-prox-layer', 'visibility','visible');
   $('#park-both').show();
   $('#subway-both').show();
-  //$('#both-legend-vals').show();
-  $('#park-legend-vals').show();
-  $('#subway-legend-vals').show();
+  $('#park-legend-vals').hide();
+  $('#subway-legend-vals').hide();
+  $('#subway-both-legend-vals').show();
+  $('#park-both-legend-vals').show();
+  $('#park-words-both-legend').show();
+  $('#subway-words-both-legend').show();
+  $('#subway-only-legend-vals').hide();
+  $('#park-only-legend-vals').hide();
 });

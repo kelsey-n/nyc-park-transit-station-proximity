@@ -12,10 +12,6 @@
 </head>
 
 <body>
-  <h2>
-    <p id='header'>Proximity to Parks & Transit Stations in NYC</p>
-  </h2>
-
   <div id='legend-filter'>
     <div>
 
@@ -33,9 +29,15 @@
       <div id='both-legend-vals'>
         <div id='park-both'></div>
         <div id='subway-both'></div>
+        <div id='park-both-legend-vals'>90%<br><br>70%<br><br>0%</div>
+        <div id='subway-both-legend-vals'>40% 85%</div>
         <div class='legend-vals' id='park-legend-vals'></div>
         <div class='legend-vals' id='subway-legend-vals'></div>
+        <div id='park-only-legend-vals'>90%<br><br>70%<br><br>0%</div>
+        <div id='subway-only-legend-vals'>0% 40% 85%</div>
       </div>
+      <div id='subway-words-both-legend'>STATION</div>
+      <div id='park-words-both-legend'>PARK</div>
     </div>
   </div>
 
@@ -43,6 +45,9 @@
 
     <div id='sidebar'>
       <div id='map-intro'>
+        <h2>
+          <p id='header'>Proximity to Parks & Transit Stations in NYC</p>
+        </h2>
         <p class='map-intro-subheading'>Data</p>
         <p>This map was created using Neighborhood Indicators downloaded from NYU Furman
           Center's data hub,
@@ -55,7 +60,7 @@
           Railroad, or Staten Island Railway
         </p><br><br>
         <p class='map-intro-subheading'>How to use this map</p>
-        <p>Click the buttons on the map to show the data distributions either individually or both layered at once. 
+        <p>Click the buttons on the map to show the data distributions either individually or both layered at once.
           Then hover over each district on the map to see its name and exact numbers.</p><br>
       </div>
     </div>
