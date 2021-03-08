@@ -240,6 +240,18 @@ html, body, .container, #sidebar, #mapcontainer {
   color: white;
 }
 
+.selected-both-button-class:hover {
+  cursor: default;
+}
+
+.selected-subway-button-class:hover {
+  cursor: default;
+}
+
+.selected-park-button-class:hover {
+  cursor: default;
+}
+
 a:visited {
   color: #0000EE;
 }
